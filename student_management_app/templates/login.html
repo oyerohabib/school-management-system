@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %}
+
+<body class="hold-transition login-page">
+  <div class="container row"> 
+    <div class="col-md-6">
+      <div class="login-box">
+    <div class="login-logo">
+      <a href="{% url 'login' %}"><b>School </b>Management System</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in to School Management System</p>
+
+        <form action="{% url 'doLogin' %}" method="POST">
+        {% csrf_token %}
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Email" name="email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" name="password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+
+            {% comment %} <div class="col-12 text-center">
+              <a href="{% url 'password_reset' %}">Reset Password</a>
+            </div>  {% endcomment %}
+
+            {% comment %} Display Messages {% endcomment %}
+            {% if messages %}
+            <div class="col-12">
+              {% for message in messages %}
+                {% if message.tags == "error" %}
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+        </form>
+
+            <!-- /.col -->
+          </div>
+
+
+    </div>
+  </div>
+    </div>
+    <div class="col-md-6">
+      <div class="login-box">
+          <div class="login-logo">
+          <a href="#"><b>User</b> Group Credentials </a>
+          </div>
+      <div class="card">
+        <div class="card-body login-card-body">
+          <div class="row">
+            <div class="col-4">
+              <div class="list-group mx-n1" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Admin</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Teacher</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Student</a>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                  <br><span>E-mail: admin@gmail.com</span><br><br>
+                  <span>Password: admin</span>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                  <br><span>E-mail: staff@gmail.com</span><br><br>
+                  <span>Password: staff</span>
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                  <br><span>E-mail: student@gmail.com</span><br><br>
+                  <span>Password: student</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- /.login-box -->
+
+{% endblock %}
