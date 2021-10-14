@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'student_management_app',
 
     ### THIRD PARTY APPS
-    'crispy_forms'
+    'crispy_forms',
     'storages',
     'cloudinary_storage',
 ]
