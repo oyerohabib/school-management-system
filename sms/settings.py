@@ -145,7 +145,7 @@ django_heroku.settings(locals())
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env("CLOUD_NAME"),
-    'API_KEY': env("API_KEY"),
-    'API_SECRET': env("API_SECRET"),
+    'CLOUD_NAME': "oyerotech-herokuapp-com",
+    'API_KEY': "523415746235479",
+    'API_SECRET': "_5rnbu30qW0JbN0pGCM-6s6IqyY",
 }
