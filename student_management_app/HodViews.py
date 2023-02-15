@@ -396,21 +396,21 @@ def edit_student(request, student_id):
     # Adding Student ID into Session Variable
     request.session['student_id'] = student_id
 
-    student = student.objects.get(admin=student_id)
+    std = student.objects.get(admin=student_id)
     form = EditStudentForm()
     # Filling the form with Data from Database
-    form.fields['email'].initial = student.admin.email
-    form.fields['username'].initial = student.admin.username
-    form.fields['first_name'].initial = student.admin.first_name
-    form.fields['last_name'].initial = student.admin.last_name
-    form.fields['address'].initial = student.address
-    form.fields['course_id'].initial = student.course_id.id
-    form.fields['gender'].initial = student.gender
-    form.fields['session_year_id'].initial = student.session_year_id.id
+    form.fields['email'].initial = std.admin.email
+    form.fields['username'].initial = std.admin.username
+    form.fields['first_name'].initial = std.admin.first_name
+    form.fields['last_name'].initial = std.admin.last_name
+    form.fields['address'].initial = std.address
+    form.fields['course_id'].initial = std.course_id.id
+    form.fields['gender'].initial = std.gender
+    form.fields['session_year_id'].initial = std.session_year_id.id
 
     context = {
         "id": student_id,
-        "username": student.admin.username,
+        "username": std.admin.username,
         "form": form
     }
     return render(request, "hod_template/edit_student_template.html", context)
